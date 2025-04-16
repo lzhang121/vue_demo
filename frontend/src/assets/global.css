@@ -1,0 +1,23 @@
+/* src/assets/global.css */
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  /* 响应式例子 */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }

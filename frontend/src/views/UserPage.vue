@@ -79,7 +79,16 @@
 
       sessionStorage.setItem('wssResult', JSON.stringify(result))
 
-      router.push('/page-result')
+      router.push(
+        {
+          name: 'PageResult',
+          params: { result: JSON.stringify(result) },
+        },
+        () => {
+          // 成功時の処理
+          console.log('Navigation successful!')
+        }
+      )
     } catch (error) {
       alert('送信に失敗しました。')
       console.error(error)
@@ -171,5 +180,16 @@
   color: #000;
 }
 
+.container {
+  padding: 2vw;
+  font-size: 2vw;
+  background-color: lightblue;
+}
+
+@media (max-width: 600px) {
+  .container {
+    background-color: lightgreen;
+  }
+}
 
   </style>
