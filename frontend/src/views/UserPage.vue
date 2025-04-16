@@ -1,5 +1,6 @@
 <template>
-    <TopBar />
+    <div class="container">
+      <TopBar />
 
     <div class="form-container">
       <h2 class="form-title">プロンプト入力</h2>
@@ -36,6 +37,7 @@
         <button class="generate-btn" @click="handleGenerate">WSSを生成</button>
       </div>
 
+    </div>
     </div>
 
   </template>
@@ -187,7 +189,7 @@
 .container {
   padding: 2vw;
   font-size: 2vw;
-  background-color: lightblue;
+  background-color: white;
 }
 
 @media (max-width: 600px) {
