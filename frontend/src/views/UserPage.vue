@@ -1,4 +1,6 @@
 <template>
+    <TopBar />
+
     <div class="form-container">
       <h2 class="form-title">プロンプト入力</h2>
       <hr class="section-divider" />
@@ -39,8 +41,10 @@
   </template>
 
   <script setup>
+  import TopBar from '@/components/TopBar.vue'
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
+
 
   const router = useRouter()
 
