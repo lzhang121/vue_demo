@@ -9,12 +9,28 @@
       <div class="form-group">
 
         <label>1）シナリオのタイトルを入力してください  <InfoPopover title="タイトルはこのシナリオの識別名です。" placement="right"/></label>
-        <textarea v-model="scenarioTitle" class="textarea"></textarea>
+        <div id="fixed-textarea">
+          <FixedTextarea
+            v-model="inputText"
+            placeholder="シナリオ"
+            :fontSize="'18px'"
+            :rows="5"
+            :width="'100%'"
+          />
+        </div>
       </div>
 
       <div class="form-group">
         <label>2）シナリオを入力してください  <InfoPopover title="処理内容を具体的に入力してください。" placement="right"/></label>
-        <textarea v-model="scenarioContent" class="textarea"></textarea>
+        <div id="fixed-textarea">
+          <FixedTextarea
+            v-model="inputText"
+            placeholder="シナリオ"
+            :fontSize="'18px'"
+            :rows="5"
+            :width="'100%'"
+          />
+        </div>
       </div>
 
       <div class="form-group">
@@ -48,6 +64,7 @@
   import { useRouter } from 'vue-router'
   import TopBar from '@/components/TopBararea.vue'
   import InfoPopover from '@/components/InfoPopover.vue'
+  import FixedTextarea from '@/components/FixedTextarea.vue'
 
 
 
@@ -81,7 +98,7 @@
 
       router.push(
         {
-          name: 'DownloadPage',
+          name: 'LoadingPage',
           params: { result: JSON.stringify(result) },
         },
         () => {
@@ -180,6 +197,13 @@
   color: #000;
 }
 
+.fixed-textarea {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  margin-top: 60px;
+}
 .container {
   padding: 2vw;
   font-size: 2vw;
