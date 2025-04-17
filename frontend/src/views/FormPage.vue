@@ -46,7 +46,7 @@
   <script setup>
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
-  import TopBar from '@/components/TopBar.vue'
+  import TopBar from '@/components/TopBararea.vue'
   import InfoPopover from '@/components/InfoPopover.vue'
 
 
@@ -81,7 +81,7 @@
 
       router.push(
         {
-          name: 'PageResult',
+          name: 'DownloadPage',
           params: { result: JSON.stringify(result) },
         },
         () => {

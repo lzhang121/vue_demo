@@ -10,7 +10,7 @@
 
   <script setup>
   import { ref, onMounted } from 'vue'
-  import TopBar from '@/components/TopBar.vue'
+  import TopBar from '@/components/TopBararea.vue'
 
   const result = ref('')
 
