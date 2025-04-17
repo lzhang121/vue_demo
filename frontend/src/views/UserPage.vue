@@ -7,17 +7,18 @@
       <hr class="section-divider" />
 
       <div class="form-group">
-        <label>1）シナリオのタイトルを入力してください <span class="info-icon" @click="showInfo(1)">ⓘ</span></label>
+
+        <label>1）シナリオのタイトルを入力してください  <InfoPopover title="タイトルはこのシナリオの識別名です。" placement="right"/></label>
         <textarea v-model="scenarioTitle" class="textarea"></textarea>
       </div>
 
       <div class="form-group">
-        <label>2）シナリオを入力してください <span class="info-icon" @click="showInfo(2)">ⓘ</span></label>
+        <label>2）シナリオを入力してください  <InfoPopover title="処理内容を具体的に入力してください。" placement="right"/></label>
         <textarea v-model="scenarioContent" class="textarea"></textarea>
       </div>
 
       <div class="form-group">
-        <label>3）例外処理の方式を指定してください <span class="info-icon" @click="showInfo(3)">ⓘ</span></label>
+        <label>3）例外処理の方式を指定してください  <InfoPopover title="ログ出力や自動再実行などの挙動を設定します。" placement="right"/></label>
         <div class="checkbox-group">
           <label><input type="checkbox" v-model="logOutput" /> ログ出力</label>
           <label><input type="checkbox" v-model="retryUntilSuccess" /> 成功するまで繰り返す</label>
@@ -25,7 +26,7 @@
       </div>
 
       <div class="form-group">
-        <label>4）対象のマニュアルを選択してください <span class="info-icon" @click="showInfo(4)">ⓘ</span></label>
+        <label>4）対象のマニュアルを選択してください  <InfoPopover title="対象のマニュアルを選んでください。" placement="right"/></label>
         <select v-model="manualDB" class="select">
           <option value="Fulfillment">Fulfillment</option>
           <option value="CUSTOM-Unstructured">CUSTOM-Unstructured</option>
@@ -43,9 +44,11 @@
   </template>
 
   <script setup>
-  import TopBar from '@/components/TopBar.vue'
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
+  import TopBar from '@/components/TopBar.vue'
+  import InfoPopover from '@/components/InfoPopover.vue'
+
 
 
   const router = useRouter()
@@ -55,15 +58,6 @@
   const logOutput = ref(true)
   const retryUntilSuccess = ref(false)
   const manualDB = ref('Fulfillment')
-  const showInfo = (id) => {
-    const tips = {
-        1: 'タイトルはこのシナリオの識別名です。',
-        2: '処理内容を具体的に入力してください。',
-        3: 'ログ出力や自動再実行などの挙動を設定します。',
-        4: '対象のマニュアルを選んでください。',
-    }
-  alert(tips[id] || 'ヒントが見つかりません。')
-}
 
   const handleGenerate = async () => {
     const payload = {
