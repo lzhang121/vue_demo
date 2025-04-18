@@ -11,12 +11,13 @@ export default {
 </script>
 
 <style>
-body {
+html,body {
   margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  background-color: #f5f5f5;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5; */
+  bargin: 0;
 }
-#app {
+/* #app {
   padding: 20px;
-}
+} */
 </style>

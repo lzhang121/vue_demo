@@ -36,8 +36,12 @@
       <div class="form-group">
         <label>3）例外処理の方式を指定してください  <InfoPopover title="ログ出力や自動再実行などの挙動を設定します。" placement="right"/></label>
         <div class="checkbox-group">
-          <label><input type="checkbox" v-model="logOutput" /> ログ出力</label>
-          <label><input type="checkbox" v-model="retryUntilSuccess" /> 成功するまで繰り返す</label>
+          <!-- <label><input type="checkbox" v-model="logOutput" /> ログ出力</label> -->
+          <!-- <label><input type="checkbox" v-model="retryUntilSuccess" /> 成功するまで繰り返す</label> -->
+          <div>
+              <RetryOption @update="handleRetryUpdate" />
+              <!-- <pre>{{ retrySettings }}</pre> -->
+          </div>
         </div>
       </div>
 
@@ -65,6 +69,7 @@
   import TopBar from '@/components/TopBararea.vue'
   import InfoPopover from '@/components/InfoPopover.vue'
   import FixedTextarea from '@/components/FixedTextarea.vue'
+  import RetryOption from '@/components/RetryOption.vue'
 
 
 
@@ -75,6 +80,7 @@
   const logOutput = ref(true)
   const retryUntilSuccess = ref(false)
   const manualDB = ref('Fulfillment')
+  const retrySettings = ref({})
 
   const handleGenerate = async () => {
     const payload = {
@@ -111,14 +117,18 @@
       console.error(error)
     }
   }
+  function handleRetryUpdate(data) {
+    retrySettings.value = data
+  }
+
   </script>
 
   <style scoped>
   .form-container {
-  font-family: "Segoe UI", sans-serif;
+  /* font-family: "Segoe UI", sans-serif;
   max-width: 700px;
-  margin: 0 auto;
-  padding: 40px 30px;
+  margin: 0 auto; */
+  padding: 10px 40px;
 }
 
 .form-title {
@@ -156,15 +166,17 @@
 }
 
 .select {
-  width: 300px;
+  width: 20%;
+  height: 50px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 18px;
   border-radius: 4px;
   background-color: #e9e6f0;
   border: none;
 }
 
 .form-actions {
+  width: 60%;
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
@@ -204,11 +216,7 @@
   text-align: center;
   margin-top: 60px;
 }
-.container {
-  padding: 2vw;
-  font-size: 2vw;
-  background-color: white;
-}
+
 
 @media (max-width: 600px) {
   .container {

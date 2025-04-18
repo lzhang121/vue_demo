@@ -9,8 +9,6 @@
   .top-bar {
     background-color: #000080;
     color: white;
-    padding: 8px 16px;
-    font-family: sans-serif;
-    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
   </style>

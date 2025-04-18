@@ -120,7 +120,7 @@ const onInput = (event) => {
 }
 
 .custom-textarea {
-  width: 100%;
+  width: 50%;
   min-height: 100px;
   padding: 24px 12px 12px 12px; /* 右侧留空间给按钮 */
   font-size: 14px;
